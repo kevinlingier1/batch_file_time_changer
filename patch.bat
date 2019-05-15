@@ -38,8 +38,27 @@ set CDATE=%day%-%month%-%year%
 ::pause
 date 5/6/2015
 ::echo date changed to %date%
-START /W notepad
+::start /wait C:\"Program Files"\"Grass Valley"\"EDIUS 7"\edius_Loader.exe
 
+::uitvoeren script
+
+start /w wordpad
+start /w notepad
+
+:LOOP
+tasklist | find /i "notepad" >nul 2>&1
+IF ERRORLEVEL 1 (
+  GOTO CONTINUE
+) ELSE (
+  ECHO Edius is nog actief
+  Timeout /T 5 /Nobreak
+  GOTO LOOP
+)
+
+:CONTINUE
+
+
+:: einde uitvoeren script
 ::pause
 
 date %CDATE%

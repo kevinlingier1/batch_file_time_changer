@@ -42,15 +42,15 @@ date 5/6/2015
 
 ::uitvoeren script
 
-start /w wordpad
+::start /w wordpad
+start C:\"Program Files"\"Grass Valley"\"EDIUS 7"\edius_Loader.exe
 start /w notepad
-
 :LOOP
 tasklist | find /i "notepad" >nul 2>&1
 IF ERRORLEVEL 1 (
   GOTO CONTINUE
 ) ELSE (
-  ECHO Edius is nog actief
+  ::ECHO Edius is nog actief
   Timeout /T 5 /Nobreak
   GOTO LOOP
 )
@@ -65,6 +65,3 @@ date %CDATE%
 
 ::echo date changed back to %date%
 ::pause
-
-
-

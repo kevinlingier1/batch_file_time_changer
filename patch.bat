@@ -1,4 +1,6 @@
 @echo off
+if not DEFINED IS_MINIMIZED set IS_MINIMIZED=1 && start "" /min "%~dpnx0" %* && exit
+
 :: BatchGotAdmin
 ::-------------------------------------
 REM  --> Check for permissions
@@ -65,3 +67,4 @@ date %CDATE%
 
 ::echo date changed back to %date%
 ::pause
+exit
